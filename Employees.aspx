@@ -5,31 +5,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #form1 {
+            height: 660px;
+        }
+    </style>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    
-    </div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+    <form id="form1" runat="server" style="background-color: #C0C0C0">
+        <a runat="server" class="navbar-brand" href="~/Customer.aspx">Customer_Page</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a runat="server" href="~/Home_Page.aspx">Home_Page</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a runat="server" href="~/Departments.aspx">Departments</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a runat="server" href="~/HelpDesk.aspx">HelpDesk</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a runat="server" href="~/Loan.aspx">Loan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a runat="server" href="~/SearchEmployee.aspx">SearchEmployee</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+    <br />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="EMPLOYEEID" HeaderText="EMPLOYEEID" SortExpression="EMPLOYEEID" />
                 <asp:BoundField DataField="DEPARTMENTID" HeaderText="DEPARTMENTID" SortExpression="DEPARTMENTID" />
                 <asp:BoundField DataField="NAME" HeaderText="NAME" SortExpression="NAME" />
-                <asp:BoundField DataField="USERNAME" HeaderText="USERNAME" SortExpression="USERNAME" />
-                <asp:BoundField DataField="PASSWORD" HeaderText="PASSWORD" SortExpression="PASSWORD" />
                 <asp:BoundField DataField="ADDRESS" HeaderText="ADDRESS" SortExpression="ADDRESS" />
                 <asp:BoundField DataField="CITY" HeaderText="CITY" SortExpression="CITY" />
                 <asp:BoundField DataField="STATE" HeaderText="STATE" SortExpression="STATE" />
                 <asp:BoundField DataField="ZIP" HeaderText="ZIP" SortExpression="ZIP" />
-                <asp:BoundField DataField="HOMEPHONE" HeaderText="HOMEPHONE" SortExpression="HOMEPHONE" />
-                <asp:BoundField DataField="EXTENSION" HeaderText="EXTENSION" SortExpression="EXTENSION" />
-                <asp:BoundField DataField="MOBILEPGONE" HeaderText="MOBILEPGONE" SortExpression="MOBILEPGONE" />
-              <%--  <asp:CommandField ShowInsertButton="true" />--%>
             </Columns>
+            <EditRowStyle BackColor="#7C6F57" />
+            <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#E3EAEB" />
+            <SelectedRowStyle BackColor="#C5BBAF" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F8FAFA" />
+            <SortedAscendingHeaderStyle BackColor="#246B61" />
+            <SortedDescendingCellStyle BackColor="#D4DFE1" />
+            <SortedDescendingHeaderStyle BackColor="#15524A" />
         </asp:GridView>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:DorknozzleCS %>" 
-            ProviderName="<%$ ConnectionStrings:DorknozzleCS.ProviderName %>" SelectCommand="SELECT * FROM &quot;EMPLOYEES&quot;" 
+            ProviderName="<%$ ConnectionStrings:DorknozzleCS.ProviderName %>" SelectCommand="SELECT EmployeeID,DepartmentID,name,address,city,state,zip    FROM &quot;EMPLOYEES&quot;" 
             InsertCommand="insertemployeeprocedure" InsertCommandType="StoredProcedure">
      <InsertParameters>
         <asp:ControlParameter Name="EMPLOYEEID" ControlID="txtEMPLOYEEID" Type="Int32" />
@@ -47,7 +56,9 @@
        
     </InsertParameters>
             </asp:SqlDataSource>
-    <div>
+    <div style="background-color: #C0C0C0">
+        <br />
+        <br />
         <%--<asp:Label ID="Label1" runat="server" Text="EMPLOYEEID"></asp:Label>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />--%>
 <asp:Label ID="Label3" runat="server" Text="DEPARTMENTID"></asp:Label>

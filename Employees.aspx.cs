@@ -12,8 +12,7 @@ public partial class Employees : System.Web.UI.Page
 {
     OracleCommand comm;
     string connectionString =
- ConfigurationManager.ConnectionStrings[
- "DorknozzleCS"].ConnectionString;
+ ConfigurationManager.ConnectionStrings[ "DorknozzleCS"].ConnectionString;
 
     OracleConnection conn = new OracleConnection(ConfigurationManager.ConnectionStrings["DorknozzleCS"].
         ConnectionString);
@@ -78,7 +77,7 @@ public partial class Employees : System.Web.UI.Page
         {
             conn.Open();
             comm.ExecuteNonQuery();
-                Response.Redirect("Employees.aspx");
+                Response.Redirect("Employees.aspx",true);
             }
             catch (Exception ex)
             {
@@ -88,7 +87,46 @@ public partial class Employees : System.Web.UI.Page
         conn.Close();
         }
 
+
+    //protected void btnSearch_Click(object sender, EventArgs e)
+    //{
+
+    //    comm = new OracleCommand("insertemployeeprocedure", conn);
+
+    //    comm.CommandType = CommandType.StoredProcedure;
+
+    //    comm.Parameters.Add("firstName", OracleDbType.Varchar2);
+    //    comm.Parameters["firstName"].Value = txtSearch.Text;
+
+       
+
+    //    try
+    //    {
+    //        conn.Open();
+    //        comm.ExecuteNonQuery();
+    //        Response.Redirect("Employees.aspx");
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        Response.Write("<script> alert('error: " + ex.Message + "'); </script>");
+    //    }
+
+    //    conn.Close();
+
+        ////Global.databaseManager.searchEmployees(txtSearch.Text,
+        ////          (dataSet) =>
+        ////          {
+        ////              employeesList.DataSource = dataSet;
+        ////              employeesList.DataBind();
+        ////          },
+        ////          (msg) =>
+        ////          {
+        ////       //TODO Show error message
+        ////       employeesList.DataSource = new DataSet();
+        ////              employeesList.DataBind();
+        ////          });
     }
+//}
 
 
 

@@ -21,6 +21,7 @@
                 <asp:MenuItem ImageUrl="~/Images/book_closed.gif" NavigateUrl="~/Employees.aspx" Text="Employee " Value="Employee Directory"></asp:MenuItem>
                 <asp:MenuItem ImageUrl="~/Images/book_closed.gif" NavigateUrl="~/Departments.aspx" Text="Departments" Value="Department"></asp:MenuItem>
                  <asp:MenuItem ImageUrl="~/Images/book_closed.gif" NavigateUrl="~/Loan.aspx" Text="Calculate Loan" Value="Calculate Loan"></asp:MenuItem>
+                 <asp:MenuItem ImageUrl="~/Images/book_closed.gif" NavigateUrl="~/SearchEmployee.aspx" Text="Search Employee" Value="Search Employee"></asp:MenuItem>
                  </Items>
           </asp:Menu>
     </div>

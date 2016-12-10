@@ -26,8 +26,7 @@ public partial class HelpDesk : System.Web.UI.Page
       OracleDataReader reader;
       // Read the connection string from Web.config
       string connectionString =
-          ConfigurationManager.ConnectionStrings[
-          "DorknozzleCS"].ConnectionString;
+          ConfigurationManager.ConnectionStrings["DorknozzleCS"].ConnectionString;
       // Initialize connection
       conn = new OracleConnection(connectionString);
       // Create command to read the help desk categories
@@ -41,25 +40,25 @@ public partial class HelpDesk : System.Web.UI.Page
       try
       {
         // Open the connection
-     conn.Open();
-        // Execute the category command
-        reader = categoryComm.ExecuteReader();
-        // Populate the list of categories
-        categoryList.DataSource = reader;
-        categoryList.DataValueField = "CategoryID";
-        categoryList.DataTextField = "Category";
-        categoryList.DataBind();
-        // Close the reader
-        reader.Close();
-        // Execute the subjects command
-        reader = subjectComm.ExecuteReader();
-        // Populate the list of subjects
-        subjectList.DataSource = reader;
-        subjectList.DataValueField = "SubjectID";
-        subjectList.DataTextField = "Subject";
-        subjectList.DataBind();
-        // Close the reader
-        reader.Close();
+     //conn.Open();
+     //   // Execute the category command
+     //   reader = categoryComm.ExecuteReader();
+     //   // Populate the list of categories
+     //   //categoryList.DataSource = reader;
+     //   //categoryList.DataValueField = "CategoryID";
+     //   //categoryList.DataTextField = "Category";
+     //   categoryList.DataBind();
+     //   // Close the reader
+     //   reader.Close();
+     //   // Execute the subjects command
+     //   reader = subjectComm.ExecuteReader();
+     //   // Populate the list of subjects
+     //   //subjectList.DataSource = reader;
+     //   //subjectList.DataValueField = "SubjectID";
+     //   //subjectList.DataTextField = "Subject";
+     //   //subjectList.DataBind();
+     //   // Close the reader
+     //   reader.Close();
       }
       finally
       {
@@ -73,35 +72,32 @@ public partial class HelpDesk : System.Web.UI.Page
     if (Page.IsValid)
     {
       // Define data objects
-      SqlConnection conn;
-      SqlCommand comm;
+      OracleConnection conn;
+      OracleCommand comm;
       // Read the connection string from Web.config
       string connectionString =
-          ConfigurationManager.ConnectionStrings[
-          "Dorknozzle"].ConnectionString;
+          ConfigurationManager.ConnectionStrings["DorknozzleCS"].ConnectionString;
       // Initialize connection
-      conn = new SqlConnection(connectionString);
+      conn = new OracleConnection(connectionString);
       // Create command 
-      comm = new SqlCommand("InsertHelpDesk", conn);
+      comm = new OracleCommand("InsertHelpDesk", conn);
       // Specify we're calling a stored procedure
       comm.CommandType = System.Data.CommandType.StoredProcedure;
       // Add command parameters
-      comm.Parameters.Add("@EmployeeID", System.Data.SqlDbType.Int);
+      comm.Parameters.Add("@EmployeeID", OracleDbType.Int32);
       comm.Parameters["@EmployeeID"].Value = 5;
-      comm.Parameters.Add("@StationNumber",
-          System.Data.SqlDbType.Int);
+      comm.Parameters.Add("@StationNumber",OracleDbType.Int32);
       comm.Parameters["@StationNumber"].Value = stationTextBox.Text;
-      comm.Parameters.Add("@CategoryID", System.Data.SqlDbType.Int);
+      comm.Parameters.Add("@CategoryID", OracleDbType.Varchar2);
       comm.Parameters["@CategoryID"].Value =
           categoryList.SelectedItem.Value;
-      comm.Parameters.Add("@SubjectID", System.Data.SqlDbType.Int);
-      comm.Parameters["@SubjectID"].Value =
-          subjectList.SelectedItem.Value;
+      comm.Parameters.Add("@SubjectID", OracleDbType.Varchar2);
+            comm.Parameters["@SubjectID"].Value = "";
       comm.Parameters.Add("@Description",
-          System.Data.SqlDbType.NVarChar, 50);
+          OracleDbType.Varchar2);
       comm.Parameters["@Description"].Value =
           descriptionTextBox.Text;
-      comm.Parameters.Add("@StatusID", System.Data.SqlDbType.Int);
+      comm.Parameters.Add("@StatusID", OracleDbType.Varchar2);
       comm.Parameters["@StatusID"].Value = 1;
       // Enclose database code in Try-Catch-Finally
       try

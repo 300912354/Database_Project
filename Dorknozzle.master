@@ -12,13 +12,30 @@
     <form id="form1" runat="server">
       <!-- Header -->
       <div class="Header">
-        <asp:ScriptManager ID="DorknozzleScriptManager" runat="server">
-        </asp:ScriptManager>
+                    <a class="navbar-brand" runat="server" href="~/Customer.aspx">Customer_Page</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <a runat="server" href="~/Home_Page.aspx">Home_Page</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+          <a runat="server" href="~/Departments.aspx">Departments</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <a runat="server" href="~/HelpDesk.aspx">HelpDesk</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           <a runat="server" href="~/Loan.aspx">Loan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a runat="server" href="~/SearchEmployee.aspx">SearchEmployee</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Image id="Image1" runat="server"
-            ImageUrl="~/Images/cc.jpg" Width="1261px" Height="256px"
+            ImageUrl="~/Images/cc.jpg" Width="1585px" Height="285px"
             AlternateText="The Official Dorknozzle Company
-            Intranet" />
+            Intranet" style="margin-top: 0px" />
       </div>
+          <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div></div></div>
+        <div class="navbar-collapse collapse">
+                    <p>
+                        &nbsp;</p>
+          
       <!-- Menu -->
       <%--<div class="Menu">
         <asp:Menu ID="Menu1" runat="server">
@@ -36,6 +53,7 @@
         <asp:ContentPlaceHolder id="ContentPlaceHolder1"
             runat="server" />
       </div>
+              </div>
     </form>
   </body>
 </html>
